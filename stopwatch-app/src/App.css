@@ -1,38 +1,234 @@
 .App {
-  text-align: center;
+ display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
   flex-direction: column;
   align-items: center;
+width:100%;
+/* height: max-content; */
+background: linear-gradient(303deg, #f5f5f5, #bcc6ce, #f5f5f5, #bcc6ce, #f5f5f5);
+  text-align:center;
+
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+  padding: 5% 2%;
+  gap:10px;
+  
+}
+.container h1 {
+  color: #003366;
+  font-size: 3.5em;
+margin-top: -1%;
+}
+
+.container .stopw-cont{
+ display:flex;
+ justify-content: center;
+  /* width:fit-content;
+  height:fit-content; */
+  /* padding: 25%  0px; */
+  width:50vh;
+  height: 50vh;
+}
+.container .stopw-cont .stopw{
+  display: flex;
+  width:clamp(230px,90%,258px);
+  height: clamp(230px,90%,258px);
+  
+  border-radius: 50%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items:  center;
+  text-align: center;
+  animation: shadowMove 5s linear infinite;
+  /* box-shadow:3px 3px 10px 5px rgb(67, 107, 252) */
 }
 
-.App-link {
-  color: #61dafb;
+/* @keyframes shadowMove {
+  0% {
+    box-shadow: 10px 0 15px rgba(67, 107, 252, 0.7);
+  }
+  25% {
+    box-shadow: 0 10px 15px rgba(67, 107, 252, 0.7);
+  }
+  50% {
+    box-shadow: -10px 0 15px rgba(67, 107, 252, 0.7);
+  }
+  75% {
+    box-shadow: 0 -10px 15px rgba(67, 107, 252, 0.7);
+  }
+  100% {
+    box-shadow: 10px 0 15px rgba(67, 107, 252, 0.7);
+  }
+} */
+@keyframes shadowMove {
+  0% {
+    box-shadow: 10px 0 15px rgb(255, 215, 0,0.7);
+  }
+  25% {
+    box-shadow: 0 10px 15px rgba(67, 107, 252, 0.7);
+  }
+  50% {
+    box-shadow: -10px 0 15px rgba(67, 107, 252, 0.7);
+  }
+  75% {
+    box-shadow: 0 -10px 15px rgba(67, 107, 252, 0.7);
+  }
+  100% {
+    box-shadow: 10px 0 15px rgb(255, 215, 0,0.7);
+  }
+}
+.container .stopw-cont .stopw .time{
+  /* color:#424242; */
+  font-size: 2em;
+}
+.stopwinfo-cont{
+  width:40%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:27% 0%}
+  50%{background-position:74% 100%}
+  100%{background-position:27% 0%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:27% 0%}
+  50%{background-position:74% 100%}
+  100%{background-position:27% 0%}
+}
+@keyframes AnimationName {
+  0%{background-position:27% 0%}
+  50%{background-position:74% 100%}
+  100%{background-position:27% 0%}
+}
+@media (max-width: 485px) {
+  /* container */
+  .container{
+    padding: 10% 2%;
   }
-  to {
-    transform: rotate(360deg);
+  .container h1 {
+    font-size: 2.5em; /* Reduce by 1em */
   }
+
+}
+/* information */
+.table-container {
+  width: 60%;
+  margin: auto; /* Center the table */
+  font-family: Arial, sans-serif;
+  color: #333; /* Text color */
+  background: none;
+  /* background-color: #f9f9f9;  */
+  border-collapse: collapse;
+}
+
+.table-container table {
+  width: 100%;
+}
+.table-container .hidden{
+  display: none;
+}
+
+.table-container th, .table-container td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Bottom border for each cell */
+}
+
+.table-container th {
+  background-color: none; /* Header background color */
+  color: #333; /* Header text color */
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: none; /* Even row background color */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 485px) {
+  .table-container {
+    width: 80%;
+  }
+}
+
+
+/* btns  */
+.stopw-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  width:50%;
+  gap:20%;
+  margin-top: 2%;
+}
+
+.play, .pause, .reset, .lap{
+  
+  /* height: 80vh;
+  width:80vh; */
+  display: block;
+  /* width: fit-content; 
+  height: fit-content; */
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 50%;
+  color:black;
+  /* background: none; */
+  background-color: rgba(234, 240, 255, 0.7);
+  box-shadow: 1px 0px 10px rgb(128, 126, 126);
+  
+}
+.play, .pause{
+  color:#003366;
+  font-size: 3em;
+  /* background-color: #f5f5f5; */
+
+}
+.lap{
+  color:white;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.pause{
+  font-size: 3.5em;
+}
+.reset{
+  transform: rotateY(180deg);
+  /* padding:1% 1%; */
+}
+.icon-disabled {
+  /* font-size:2em; */
+  opacity: 0.5; 
+  /* background: rgba(150, 150, 150); */
+  pointer-events: none; 
+  cursor: not-allowed; 
+}
+.animate-slide {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Initial positions for the flag and reset buttons */
+.lap {
+  transform: translateX(-100%);
+}
+
+.reset {
+  transform: translateX(100%);
+}
+
+/* Slide the buttons into their final positions */
+.animate-slide.lap {
+  transform: translateX(0);
+}
+
+.animate-slide.reset {
+  transform: translateX(0);
 }
